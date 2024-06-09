@@ -1,0 +1,37 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - echo "Building the project..."
+    - mkdir build
+    - cp index.html build/
+    - cp styles.css build/
+    - cp script.js build/
+    - cp server.js build/
+    - cp users.txt build/
+    - cp -r test build/
+  artifacts:
+    paths:
+      - build/
+
+test:
+  stage: test
+  image: node:14
+  script:
+    - npm install
+    - npm test
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying the project..."
+    - mkdir -p /path/to/deploy
+    - cp build/* /path/to/deploy/
+  needs:
+    - build
+  only:
+    - main
