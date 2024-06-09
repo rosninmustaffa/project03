@@ -3,7 +3,7 @@ stages:
   - test
   - deploy
 
-build:
+build-job:
   stage: build
   script:
     - echo "Building the project..."
@@ -18,10 +18,11 @@ build:
     paths:
       - build/
 
-test:
+test-job:
   stage: test
   image: node:14
   script:
+    - echo "Testing the project..."
     - npm install
     - npm test
 
@@ -33,5 +34,3 @@ deploy:
     - cp build/* /path/to/deploy/
   needs:
     - build
-  only:
-    - main
