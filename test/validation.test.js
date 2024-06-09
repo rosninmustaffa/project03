@@ -13,7 +13,7 @@ jest.mock('../script', () => {
     return {
         ...originalModule,
         document: {
-            addEventListener: jest.fn(),
+            getElementById: jest.fn(),
         },
     };
 });
