@@ -1,4 +1,8 @@
-// script.js
+/**
+ * script.js.
+ *
+ * @author Rosnin Mustaffa
+ */
 
 // Function to validate username
 function validateUsername(username) {
