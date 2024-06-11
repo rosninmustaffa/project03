@@ -23,7 +23,7 @@ jobs:
           git config --global user.email "rosnin_m@hotmail.com"
           git config --global user.name "rosninmustaffa"
           git clone https://${{ env.ORG_NAME }}:${{ secrets.PAT }}@github.com/${{ env.ORG_NAME }}/https://gitlab.com/dev3093023/project03.git
-          cd destination-repo
+          cd https://gitlab.com/dev3093023/project03.git
           git remote add ${{ env.ORIGINAL_REPO_NAME }} https://${{ env.ORG_NAME }}:${{ secrets.PAT }}@github.com/${{ env.ORG_NAME }}/${{ env.ORIGINAL_REPO_NAME }}.git
           git remote update
           git merge ${{ env.ORIGINAL_REPO_NAME }}/main
